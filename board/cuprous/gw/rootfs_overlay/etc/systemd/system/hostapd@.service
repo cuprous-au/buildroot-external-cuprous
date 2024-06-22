@@ -1,0 +1,23 @@
+[Unit]
+Description=Advanced IEEE 802.11 AP and IEEE 802.1X/WPA/WPA2/EAP Authenticator
+Requires=sys-subsystem-net-devices-wlan0.device
+After=sys-subsystem-net-devices-wlan0.device
+Before=network.target
+Wants=network.target
+StartLimitInterval=1
+StartLimitBurst=2
+
+[Service]
+Type=simple
+ExecCondition=/etc/systemd/system/hostapd-%I-condition.sh
+ExecStartPre=/etc/systemd/system/hostapd-%I-configure.sh
+ExecStart=/usr/sbin/hostapd /etc/hostapd/hostapd-%I.conf
+ExecStartPost=/etc/systemd/system/hostapd-%I-up.sh
+ExecStopPost=/etc/systemd/system/hostapd-%I-down.sh
+Restart=always
+RestartSec=1
+
+[Install]
+Alias=multi-user.target.wants/hostapd@%i.service
+WantedBy=multi-user.target
+

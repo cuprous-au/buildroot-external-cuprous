@@ -1,0 +1,6 @@
+[Match]
+Name=config0
+
+[Network]
+Bridge=config-br0
+
