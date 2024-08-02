@@ -1,0 +1,2 @@
+enable hostapd@ap0.service
+enable hostapd-chan-switch@ap0.service

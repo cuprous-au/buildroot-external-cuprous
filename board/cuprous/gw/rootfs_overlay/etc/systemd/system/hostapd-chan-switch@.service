@@ -1,0 +1,16 @@
+[Unit]
+Description=Assigns hostapd's channel to any assigned to wlan0
+PartOf=wpa_supplicant@wlan0.service
+After=wpa_supplicant@wlan0.service
+StartLimitInterval=1
+StartLimitBurst=2
+
+[Service]
+Type=simple
+ExecStart=/sbin/wpa_cli -g /var/run/wpa_supplicant -a /etc/systemd/system/hostapd-chan-switch-%I.sh
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=wpa_supplicant@wlan0.service

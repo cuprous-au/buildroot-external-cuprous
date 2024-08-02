@@ -18,6 +18,5 @@ Restart=always
 RestartSec=1
 
 [Install]
-Alias=multi-user.target.wants/hostapd@%i.service
 WantedBy=multi-user.target
 
