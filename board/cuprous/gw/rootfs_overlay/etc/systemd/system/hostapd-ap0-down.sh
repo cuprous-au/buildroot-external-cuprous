@@ -1,4 +1,5 @@
 #! /bin/sh
 # Turn off the LED to indicate no AP activity
 
-echo "none" > /sys/class/leds/activity/trigger
+/etc/systemd/system/hostapd-ap0-led-show-off.sh
+

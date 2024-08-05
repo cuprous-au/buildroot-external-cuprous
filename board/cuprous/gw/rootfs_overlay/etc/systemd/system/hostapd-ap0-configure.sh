@@ -1,6 +1,10 @@
 #! /bin/sh
 # Configure hostapd with an SSID and passphase in relation to our WiFi's mac address.
 
+# Indicate we're doing something
+/etc/systemd/system/hostapd-ap0-led-show-starting.sh
+
+# Assign our SSID and password based on our MAC address
 MAC_ID=$(cat /sys/class/net/wlan0/address | tr -d ':' | tail -c5)
 sed -i -e "s/^ssid=.*/ssid=Cuprous-${MAC_ID}/" /etc/hostapd/hostapd-ap0.conf
 sed -i -e "s/^wpa_passphrase=.*/wpa_passphrase=${MAC_ID}${MAC_ID}/" /etc/hostapd/hostapd-ap0.conf

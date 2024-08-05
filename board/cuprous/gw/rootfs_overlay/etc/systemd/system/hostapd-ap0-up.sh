@@ -1,4 +1,5 @@
 #! /bin/sh
 # Turn on the LED to indicate AP activity
 
-echo "heartbeat" > /sys/class/leds/activity/trigger
+/etc/systemd/system/hostapd-ap0-led-show-on.sh
+
