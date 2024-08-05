@@ -1,4 +1,6 @@
 #! /bin/sh
 
-echo "default_on" > /sys/class/leds/activity/trigger
+Eco "timer" > /sys/class/leds/activity/trigger
+echo 100 > /sys/class/leds/activity/delay_on
+echo 100 > /sys/class/leds/activity/delay_off
 
