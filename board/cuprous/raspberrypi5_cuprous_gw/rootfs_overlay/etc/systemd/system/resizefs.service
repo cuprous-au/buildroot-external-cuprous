@@ -1,0 +1,17 @@
+[Unit]
+Description=Resize file system to capacity on first boot
+
+ConditionFirstBoot=yes
+
+DefaultDependencies=no
+# This service will need to write to the file system:
+After=systemd-remount-fs.service
+
+Wants=first-boot-complete.target
+Before=first-boot-complete.target sysinit.target
+Conflicts=shutdown.target
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/systemd/system/resizefs.sh

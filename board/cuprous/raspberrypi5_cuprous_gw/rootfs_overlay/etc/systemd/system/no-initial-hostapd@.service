@@ -1,0 +1,11 @@
+[Unit]
+Description=Perform miscellaneous activities if there is no associated hostapd service activated during boot
+
+[Service]
+Type=idle
+ExecCondition=/bin/sh -c '! "$@"' -- /bin/systemctl is-active hostapd@%I.service
+ExecStart=/etc/systemd/system/hostapd-%I-led-show-off.sh
+
+[Install]
+WantedBy=multi-user.target
+

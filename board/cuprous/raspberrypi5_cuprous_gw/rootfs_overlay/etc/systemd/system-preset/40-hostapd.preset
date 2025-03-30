@@ -1,0 +1,3 @@
+disable hostapd@.service
+enable hostapd-chan-switch@.service ap0
+enable no-initial-hostapd@.service ap0
