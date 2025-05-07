@@ -22,7 +22,7 @@ sed -i -e "s/^channel=.*/channel=${CHANNEL}/" /etc/hostapd/hostapd-ap0.conf
 # We also configure the ap0 interface here as hostapd will remove it on a restart. Thus,
 # it cannot be a udev rule. Why hostapd decides that it an external responsibility to
 # create it, but not to delete it is mysterious.
-/usr/sbin/iw dev wlan0 interface add ap0 type __ap
+/usr/sbin/iw dev wlan0 interface add ap0 type __ap 2> /dev/null || true
 /usr/sbin/ifconfig ap0 up
 
 
