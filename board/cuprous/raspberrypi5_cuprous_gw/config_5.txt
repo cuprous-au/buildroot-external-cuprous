@@ -1,0 +1,3 @@
+dtoverlay=raspberrypi5_cuprous_gw-overlay
+kernel=Image
+

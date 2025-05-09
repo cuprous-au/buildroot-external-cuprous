@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo "heartbeat" > /sys/class/leds/activity/trigger
+echo "heartbeat" > /sys/class/leds/AP/trigger
 
