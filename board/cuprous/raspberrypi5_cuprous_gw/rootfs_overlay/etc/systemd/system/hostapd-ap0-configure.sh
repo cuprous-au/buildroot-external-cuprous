@@ -11,9 +11,9 @@ sed -i -e "s/^wpa_passphrase=.*/wpa_passphrase=${MAC_ID}${MAC_ID}/" /etc/hostapd
 
 # We configure ap0 to have the same channel as wlan0 if it is active, or back
 # to a sensible default if not.
-CHANNEL=$(/sbin/iw wlan0 info | grep "channel" | grep -Eo '[0-9]+')
-if [ $? -eq 0 ]; then
-    CHANNEL=$(echo "$CHANNEL" | head -1)
+CHANNEL=$(cat /sys/class/net/wlan0/carrier)
+if [ $? -eq 1 ]; then
+    CHANNEL=$(/sbin/iw wlan0 info | grep "channel" | grep -Eo '[0-9]+' | head -1)
 else
     CHANNEL=1
 fi
