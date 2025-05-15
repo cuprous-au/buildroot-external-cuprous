@@ -1,3 +1,4 @@
 dtoverlay=raspberrypi5_cuprous_gw-overlay
+gpio=22=pu
 kernel=Image
 
