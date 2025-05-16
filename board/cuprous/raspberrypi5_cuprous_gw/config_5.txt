@@ -5,13 +5,13 @@ dtoverlay=raspberrypi5_cuprous_gw-overlay
 gpio=22=ip,pu
 
 # LED_AP
-gpio=23=op,pd
+gpio=23=op
 
 # FIRE_BUTTON
 gpio=24=ip,pu
 
 # LED_FIRE
-gpio=25=op,pd
+gpio=25=op
 
 kernel=Image
 
