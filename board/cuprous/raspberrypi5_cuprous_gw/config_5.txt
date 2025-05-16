@@ -1,4 +1,17 @@
+# Custom overlay
 dtoverlay=raspberrypi5_cuprous_gw-overlay
-gpio=22=pu
+
+# AP_BUTTON
+gpio=22=ip,pu
+
+# LED_AP
+gpio=23=op,pd
+
+# FIRE_BUTTON
+gpio=24=ip,pu
+
+# LED_FIRE
+gpio=25=op,pd
+
 kernel=Image
 
