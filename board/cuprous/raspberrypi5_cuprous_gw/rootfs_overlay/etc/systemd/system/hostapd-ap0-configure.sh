@@ -11,13 +11,21 @@ sed -i -e "s/^wpa_passphrase=.*/wpa_passphrase=${MAC_ID}${MAC_ID}/" /etc/hostapd
 
 # We configure ap0 to have the same channel as wlan0 if it is active, or back
 # to a sensible default if not.
-CHANNEL=$(cat /sys/class/net/wlan0/carrier)
-if [ $? -eq 1 ]; then
+WLAN_CARRIER=$(cat /sys/class/net/wlan0/carrier)
+if [ $WLAN_CARRIER -eq 1 ]; then
     CHANNEL=$(/sbin/iw wlan0 info | grep "channel" | grep -Eo '[0-9]+' | head -1)
 else
     CHANNEL=1
 fi
 sed -i -e "s/^channel=.*/channel=${CHANNEL}/" /etc/hostapd/hostapd-ap0.conf
+
+# Configure the hardware mode to 2.4GHz or 5Ghz according to the range of the channel
+if [ $CHANNEL -ge 14 ]; then
+    HW_MODE=a
+else
+    HW_MODE=g
+fi
+sed -i -e "s/^hw_mode=.*/hw_mode=${HW_MODE}/" /etc/hostapd/hostapd-ap0.conf
 
 # We also configure the ap0 interface here as hostapd will remove it on a restart. Thus,
 # it cannot be a udev rule. Why hostapd decides that it an external responsibility to
