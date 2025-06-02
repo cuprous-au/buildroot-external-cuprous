@@ -10,8 +10,7 @@ StartLimitBurst=2
 [Service]
 Type=simple
 ExecCondition=/etc/systemd/system/hostapd-%I-condition.sh
-ExecStartPre=/etc/systemd/system/hostapd-%I-configure.sh
-ExecStart=/usr/sbin/hostapd /etc/hostapd/hostapd-%I.conf
+ExecStart=/etc/systemd/system/hostapd-%I-run.sh
 ExecStartPost=/etc/systemd/system/hostapd-%I-up.sh
 ExecStopPost=/etc/systemd/system/hostapd-%I-down.sh
 Restart=always
