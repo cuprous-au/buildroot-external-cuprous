@@ -13,5 +13,21 @@ gpio=24=ip,pu
 # LED_FIRE
 gpio=25=op
 
+# FIRE_INPUT
+gpio=26=ip,np
+
+# RS485_BUS0
+gpio=6=ip,np
+gpio=7=op
+gpio=12=ip,pu
+
+# AUX_INPUT
+gpio=27=ip,np
+
+# RS485_BUS1
+gpio=10=ip,np
+gpio=11=op
+gpio=13=ip,pu
+
 kernel=Image
 
