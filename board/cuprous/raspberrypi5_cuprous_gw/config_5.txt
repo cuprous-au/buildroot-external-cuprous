@@ -1,6 +1,10 @@
 # Custom overlay
 dtoverlay=raspberrypi5_cuprous_gw-overlay
 
+# Enable UARTs for RS485
+dtoverlay=uart2-pi5,ctsrts=off
+dtoverlay=uart3-pi5,ctsrts=off
+
 # AP_BUTTON
 gpio=22=ip,pu
 
