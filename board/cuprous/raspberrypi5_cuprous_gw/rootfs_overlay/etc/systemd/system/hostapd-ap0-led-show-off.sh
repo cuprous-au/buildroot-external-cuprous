@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo "default-on" > /sys/class/leds/AP/trigger
+echo "none" > /sys/class/leds/AP/trigger
 
