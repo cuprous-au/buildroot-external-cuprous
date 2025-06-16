@@ -1,0 +1,6 @@
+[Match]
+Name=enu1
+
+[Network]
+Bridge=config-br0
+
