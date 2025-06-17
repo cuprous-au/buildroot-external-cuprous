@@ -17,7 +17,7 @@ To get started with support alongside Microchip:
 Building for the Raspberrypi 5 gateway
 ---
 
-* clone the main [buildroot](https://github.com/buildroot/buildroot.git) and checkout the tag for `2025.02`
+* clone the main [buildroot](https://github.com/buildroot/buildroot.git) and checkout the tag for `2025.05`
 * `cd` into the buildroot repo and then: `make BR2_EXTERNAL=../buildroot-external-cuprous menuconfig`
 * exit and save the menuconfig then, for example, `make raspberrypi5_cuprous_gw_defconfig` to create a default configuration for the board (`make list-defconfigs` can also be used to display the available configurations)
 * finally, build: `make -j$(nproc)`
