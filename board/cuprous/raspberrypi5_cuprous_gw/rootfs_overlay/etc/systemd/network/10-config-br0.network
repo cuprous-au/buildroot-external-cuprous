@@ -3,7 +3,7 @@ Name=config-br0
 
 [Network]
 Address=172.27.1.1/24
-Address=fd00:2760:f909:1::1/127
+Address=fd00:2760:f909:1::1/64
 DHCPServer=yes
 
 [DHCPServer]
