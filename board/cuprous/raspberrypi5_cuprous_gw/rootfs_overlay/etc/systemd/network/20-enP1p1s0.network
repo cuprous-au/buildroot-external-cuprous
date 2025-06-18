@@ -2,3 +2,5 @@
 Name=enP1p1s0
 [Network]
 DHCP=ipv4
+[DHCPv4]
+RouteMetric=512
