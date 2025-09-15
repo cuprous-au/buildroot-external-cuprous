@@ -10,3 +10,15 @@ ln -s /etc/systemd/system/resizefs.service $TARGET_DIR/etc/systemd/system/first-
 
 rm -f $TARGET_DIR/etc/machine-id
 
+VERSION="$(cd ../buildroot-external-cuprous; git describe)"
+( \
+	echo "NAME=Cuprux"; \
+	echo "VERSION=$VERSION"; \
+	echo "ID=cuprux"; \
+	echo "ID_LIKE=buildroot linux"; \
+	echo "VERSION_ID=$VERSION"; \
+	echo "PRETTY_NAME=\"Cuprux $VERSION\"" \
+	echo "HOME_URL=\"https://github.com/cuprous-au/buildroot-external-cuprous\"" \
+) >  $TARGET_DIR/etc/os-release
+
+
