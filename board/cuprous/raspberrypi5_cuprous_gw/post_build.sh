@@ -17,7 +17,7 @@ VERSION="$(cd ../buildroot-external-cuprous; git describe)"
 	echo "ID=cuprux"; \
 	echo "ID_LIKE=buildroot linux"; \
 	echo "VERSION_ID=$VERSION"; \
-	echo "PRETTY_NAME=\"Cuprux $VERSION\"" \
+	echo "PRETTY_NAME=\"Cuprux $VERSION\""; \
 	echo "HOME_URL=\"https://github.com/cuprous-au/buildroot-external-cuprous\"" \
 ) >  $TARGET_DIR/etc/os-release
 
