@@ -17,7 +17,14 @@ To get started with support alongside Microchip:
 Building for the Raspberrypi 5 gateway
 ---
 
-* clone the main [buildroot](https://github.com/buildroot/buildroot.git) and checkout the tag for `2025.05`
+* clone the main [buildroot](https://github.com/buildroot/buildroot.git) and checkout the tag for `2026.08.1`
 * `cd` into the buildroot repo and then: `make BR2_EXTERNAL=../buildroot-external-cuprous menuconfig`
 * exit and save the menuconfig then, for example, `make raspberrypi5_cuprous_gw_defconfig` to create a default configuration for the board (`make list-defconfigs` can also be used to display the available configurations)
 * finally, build: `make -j$(nproc)`
+
+Upgrading buildroot
+---
+
+When upgrading buildroot make sure you check out a stable tag e.g. `2026.08.1` and then update the linux kernel
+source in the defconfig file(s) to correlate with any corresponding one in the mainline buildroot branch (origin).
+Then do a local clean (`make distclean`) and reapply the defconfig.
